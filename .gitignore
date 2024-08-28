@@ -1,0 +1,8 @@
+__pycache__/
+__pycache__/*
+
+venv/
+keylog.db
+counter.txt
+tags*
+.env
