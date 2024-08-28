@@ -1,93 +1,134 @@
-# analytics
+# Personal Analytics Tool
 
+## Overview
 
+This Personal Analytics Tool is designed to capture and analyze various types of user interactions over extended periods. It collects data on keyboard and mouse activity, idle time, scrolling behavior, and email communications. The tool stores the collected data in an SQLite database and provides multiple visualization features to help you gain insights into your digital habits.
 
-## Getting started
+## Data Collected
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### 1. **Keylogging Data**
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **Keystrokes**: Records every key pressed, along with a timestamp.
+- **Key Hold Duration**: Measures the duration each key is held down.
+- **Keypress Frequency**: Tracks the frequency of each keypress over time.
 
-## Add your files
+### 2. **Mouse Activity**
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- **Mouse Clicks**: Captures the percentage of left, right, and middle clicks, along with the coordinates of each click.
+- **Mouse Paths**: Records the paths taken by the mouse.
+- **Mouse Scroll Events**: Logs scroll direction and timestamp.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/monster0506/analytics.git
-git branch -M main
-git push -uf origin main
-```
+### 3. **Idle Time**
 
-## Integrate with your tools
+- **Idle Time Tracking**: Measures periods of inactivity and records idle time data.
 
-- [ ] [Set up project integrations](https://gitlab.com/monster0506/analytics/-/settings/integrations)
+### 4. **Email Metadata**
 
-## Collaborate with your team
+- **Date and Time**: Captures the timestamp when an email is sent or received.
+- **Subject**: Records the subject line of each email.
+- **Sender and Recipient**: Stores the sender and recipient information.
+- **Email Body**: Optionally records the content of the email.
+- **Email Size**: Tracks the size of each email.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## Visualization Features
 
-## Test and Deploy
+### Keylogging Visualizations
 
-Use the built-in continuous integration in GitLab.
+1. **Keystrokes per Hour**:
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+   - Visualizes the number of keystrokes recorded each hour of the day.
 
-***
+2. **Average Key Hold Duration**:
 
-# Editing this README
+   - Displays the average duration for which each key is held down.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+3. **Key Presses Heatmap**:
 
-## Suggestions for a good README
+   - A heatmap showing key presses by the hour of the day and day of the week.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### Mouse Activity Visualizations
 
-## Name
-Choose a self-explaining name for your project.
+1. **Mouse Click Distribution**:
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+   - Shows the percentage distribution of mouse clicks by button type (left, right, middle).
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+2. **Mouse Click Heatmap**:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+   - Visualizes the coordinates of mouse clicks on the screen.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+3. **Mouse Path Visualization**:
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+   - Displays the paths taken by the mouse on the screen.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+4. **Scroll Events Analysis**:
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+   - Analyzes scroll direction frequency and the amount of time spent scrolling.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Idle Time Visualizations
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+1. **Idle Time Distribution**:
+   - Visualizes idle time data over different hours of the day, helping to understand periods of inactivity.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### Email Metadata Visualizations
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+1. **Email Volume Over Time**:
 
-## License
-For open source projects, say how it is licensed.
+   - A line graph showing the volume of emails sent/received over time.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+2. **Top Senders and Recipients**:
+
+   - Bar charts showing the top 10 senders and recipients of emails.
+
+3. **Email Subject Word Cloud**:
+
+   - Generates a word cloud from email subject lines to visualize common topics.
+
+4. **Email Response Times**:
+
+   - A histogram showing the distribution of response times for emails.
+
+5. **Email Sentiment Analysis**:
+
+   - Bar chart visualizing the sentiment (positive, neutral, negative) of email content.
+
+6. **Email Topics Over Time**:
+
+   - Line graph showing trends in email topics over time based on keyword analysis.
+
+7. **Email Interaction Network**:
+
+   - A network graph showing the interactions between senders and recipients.
+
+8. **Email Length Distribution**:
+
+   - Histogram showing the distribution of email lengths (number of characters).
+
+9. **Emails by Time of Day**:
+
+   - A scatter plot where the x-axis is the month across years and the y-axis is the time of day when emails were sent/received.
+
+10. **Most Common Email Subjects**:
+
+- Bar chart displaying the most frequently used email subjects.
+
+1. **Email Size Distribution**:
+
+- Scatter plot where the x-axis represents email index and the y-axis represents email size in bytes.
+
+## Setup and Usage
+
+1. **Database Setup**: The tool stores all data in an SQLite database. Ensure you have SQLite installed and configured.
+2. **Running the Tool**: Execute the Python scripts provided to start collecting data. The tool is designed to run continuously in the background.
+3. **Viewing Visualizations**: Use the visualization script to generate various charts and graphs based on the collected data. The visualizations are rendered using Matplotlib and Seaborn.
+
+## Future Improvements
+
+- **Customizable Dashboards**: Create a web-based dashboard for real-time data visualization.
+- **Cross-Platform Compatibility**: Enhance support for multiple operating systems.
+- **Data Export**: Add features to export data to CSV or other formats for further analysis.
+
+## Disclaimer
+
+This tool is intended for personal use only. Ensure you comply with all applicable laws and regulations when using keylogging or other data collection methods.
+
+---
