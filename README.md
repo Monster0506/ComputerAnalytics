@@ -121,6 +121,72 @@ This Personal Analytics Tool is designed to capture and analyze various types of
 2. **Running the Tool**: Execute the Python scripts provided to start collecting data. The tool is designed to run continuously in the background.
 3. **Viewing Visualizations**: Use the visualization script to generate various charts and graphs based on the collected data. The visualizations are rendered using Matplotlib and Seaborn.
 
+## Technical Details
+
+### Technology Stack
+- **Core Language**: Python 3.x
+- **Automation**: PowerShell scripts for process management
+- **Database**: SQLite3
+- **Key Libraries**:
+  - Data Analysis: pandas, numpy, matplotlib, seaborn
+  - Text Processing: nltk, textblob
+  - Visualization: wordcloud
+  - System Monitoring: pynput, psutil
+  - Email Processing: python-dotenv
+
+### Architecture
+1. **Process Management**
+   - Parallel execution of email monitoring and keylogging
+   - Daemon threads for continuous email processing
+   - Process monitoring with automatic logging
+   - Counter-based execution cycle tracking
+
+2. **Data Storage**
+   - SQLite database schema for:
+     - Keylogging events
+     - Mouse activity
+     - Email metadata
+     - Idle time records
+   - File-based logging for process monitoring
+   - Counter system for execution tracking
+
+3. **Email System**
+   - IMAP connection handling
+   - Multi-part message processing
+   - Attachment handling
+   - Email metadata extraction
+
+### Installation Requirements
+1. **Environment Setup**
+   ```plaintext
+   - Python 3.x
+   - PowerShell 5.0 or higher
+   - SQLite3
+   - Virtual environment support
+   ```
+
+2. **Configuration**
+   - Environment variables (.env file):
+     - Email credentials
+     - IMAP server settings
+     - Database configuration
+   - File permissions for logging
+   - Database initialization
+
+3. **Execution Flow**
+   - Virtual environment creation
+   - Dependencies installation
+   - Database initialization
+   - Parallel process startup
+   - Continuous monitoring
+
+### Security Considerations
+- Local SQLite database with restricted permissions
+- Environment variables for sensitive credentials
+- Process isolation through separate threads
+- Excluded sensitive files in .gitignore
+
+
 ## Future Improvements
 
 - **Customizable Dashboards**: Create a web-based dashboard for real-time data visualization.
